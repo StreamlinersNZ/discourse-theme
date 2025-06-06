@@ -1,5 +1,5 @@
 #topic-title {
-  background: var(--primary);
+  background: var(--secondary);
   margin: 0;
   border-radius: 4px 4px 0 0;
   box-sizing: border-box;
@@ -11,7 +11,7 @@
     font-size: var(--font-up-4);
 
     a {
-      color: var(--secondary);
+      color: var(--primary);
     }
     font-weight: normal;
     margin-bottom: 0.25em;
@@ -21,7 +21,7 @@
   .discourse-tag.simple,
   .discourse-tag.simple:visited,
   .discourse-tag.simple:hover {
-    color: var(--secondary);
+    color: var(--primary);
   }
 
   a.edit-topic {
@@ -41,6 +41,28 @@
   }
 }
 
+.title-voting {
+  padding-right: 0.75em;
+  padding-left: 0.75em;
+  width: 6em;
+  max-width: 10%;
+  box-sizing: border-box;
+  float: left;
+}
+
+.vote-count-wrapper {
+  font-size: var(--font-up-2);
+  height: 40px;
+  width: 100%;
+  margin-left: 0 !important;
+  border: 0 !important;
+}
+
+.vote-button {
+  width: 100%;
+  margin: 0;
+}
+
 .signup-cta {
   @include custom-card;
   @include custom-topic-width;
@@ -55,6 +77,11 @@
   .topic-body {
     border-top: none;
   }
+}
+
+.topic-status-info,
+.topic-timer-info {
+  border-top: none !important;
 }
 
 .names span.first {

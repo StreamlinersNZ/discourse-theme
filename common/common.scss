@@ -4,10 +4,11 @@
   --d-input-border-radius: 4px;
   --topic-body-width: 900px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap';
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 
@@ -17,13 +18,13 @@ body {
   border-radius: 0.5em;
   border: 1px solid var(--redditish-border-color);
   background: var(--secondary);
-  box-shadow: 0px 1px 2px 0px rgba(21, 21, 21, 0.08);
+  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
 
   @content;
 
   .discourse-no-touch & {
     &:hover {
-      box-shadow: 0px 2px 4px 0px rgba(21, 21, 21, 0.08);
+      box-shadow: 0 2px 4px 0 rgba(21, 21, 21, 0.08);
     }
   }
 }
@@ -196,6 +197,7 @@ body {
 .sidebar-section-wrapper.sidebar-section[data-section-name="categories"] {
   display: none;
 }
+
 .sidebar-section-wrapper.sidebar-section[data-section-name="tags"] {
   display: none;
 }
@@ -204,21 +206,27 @@ body {
   .sidebar-custom-sections {
     display: contents;
   }
+
   [data-section-name="community"] {
     order: -6;
   }
+
   [data-section-name="global"] {
     order: -5;
   }
+
   [data-section-name="australia"] {
     order: -4;
   }
+
   [data-section-name="england"] {
     order: -3;
   }
+
   [data-section-name="new-zealand"] {
     order: -2;
   }
+
   [data-section-name="wales"] {
     order: -1;
   }

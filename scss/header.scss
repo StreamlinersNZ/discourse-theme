@@ -31,6 +31,7 @@
   grid-area: logo;
   margin-left: 3.7em; // 2.7em hamburger width + 1em for margin
   margin-right: 0.725em;
+
   a {
     flex: 1 0 auto;
   }
@@ -43,6 +44,7 @@
     max-height: 100%;
   }
 }
+
 .d-header-icons .icon {
   padding: 0.25em !important; // too specific in core
   border-radius: var(--d-button-border-radius);
@@ -61,12 +63,14 @@
 .floating-search-input {
   width: 60%;  
 }
+
 .d-header-icons .active .icon {
   border-color: transparent !important;
 }
 
 .header-sidebar-toggle {
   max-width: 50px !important; 
+
 button .d-icon {
   font-size: var(--font-up-2);
   color: var(--primary-medium);

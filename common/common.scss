@@ -9,59 +9,6 @@
 
 body {
   font-family: Roboto, sans-serif;
-}
-
-
-@mixin custom-card {
-  box-sizing: border-box;
-  padding: 0.75em;
-  border-radius: 0.5em;
-  border: 1px solid var(--redditish-border-color);
-  background: var(--secondary);
-  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
-
-  @content;
-
-  .discourse-no-touch & {
-    &:hover {
-      box-shadow: 0 2px 4px 0 rgba(21, 21, 21, 0.08);
-    }
-  }
-}
-
-@mixin custom-topic-width {
-  width: calc(100% - 8em);
-
-  @media screen and (max-width: 924px) {
-    width: 100%;
-  }
-}
-
-@import "badges";
-@import "categories";
-@import "category-banner";
-@import "category-boxes";
-@import "chat";
-@import "composer";
-@import "groups";
-@import "header";
-@import "right-sidebar";
-@import "search";
-@import "select-kit";
-@import "tag";
-@import "topic";
-@import "topic-list";
-@import "user";
-
-.sidebar-section-link-wrapper {
-  .sidebar-section-link {
-     &[data-link-name="docs"] {
-     display: none;
-     }
-   }
-}
-
-body {
   background: var(--redditish-bg-color);
   background-image: none !important; /* overrides category bg because we use it for banners instead */
 
@@ -135,6 +82,55 @@ body {
       display: none;
     }
   }
+}
+
+@mixin custom-card {
+  box-sizing: border-box;
+  padding: 0.75em;
+  border-radius: 0.5em;
+  border: 1px solid var(--redditish-border-color);
+  background: var(--secondary);
+  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
+
+  @content;
+
+  .discourse-no-touch & {
+    &:hover {
+      box-shadow: 0 2px 4px 0 rgba(21, 21, 21, 0.08);
+    }
+  }
+}
+
+@mixin custom-topic-width {
+  width: calc(100% - 8em);
+
+  @media screen and (max-width: 924px) {
+    width: 100%;
+  }
+}
+
+@import "badges";
+@import "categories";
+@import "category-banner";
+@import "category-boxes";
+@import "chat";
+@import "composer";
+@import "groups";
+@import "header";
+@import "right-sidebar";
+@import "search";
+@import "select-kit";
+@import "tag";
+@import "topic";
+@import "topic-list";
+@import "user";
+
+.sidebar-section-link-wrapper {
+  .sidebar-section-link {
+     &[data-link-name="docs"] {
+     display: none;
+     }
+   }
 }
 
 .btn-default,

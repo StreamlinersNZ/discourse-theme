@@ -9,7 +9,7 @@ importers:
   .:
     devDependencies:
       '@discourse/lint-configs':
-        specifier: 2.11.1
+        specifier: ^2.11.1
         version: 2.11.1(ember-template-lint@7.0.1(@babel/core@7.26.10))(eslint@9.22.0)(postcss@8.5.3)(prettier@3.5.3)(stylelint@16.16.0(typescript@5.8.2))
       ember-template-lint:
         specifier: 7.0.1

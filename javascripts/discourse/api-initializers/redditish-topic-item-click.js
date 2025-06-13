@@ -1,6 +1,6 @@
+import { wantsNewWindow } from "discourse/lib/intercept-click";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import showModal from "discourse/lib/show-modal";
-import { wantsNewWindow } from "discourse/lib/intercept-click";
 
 export default {
   name: "redditish-customize-topic-list-item",

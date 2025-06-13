@@ -17,10 +17,12 @@
     p {
       color: var(--primary-high);
       margin: 0;
+
       + .custom-right-sidebar_controls {
         margin-top: 1em;
       }
     }
+
     &.-tags-and-subcategories {
       display: flex;
       flex-direction: column;
@@ -32,6 +34,7 @@
     p {
       margin-bottom: 0.25em;
     }
+
     button {
       width: 100%;
       margin: 0.5em 0;
@@ -64,8 +67,10 @@
   &_recent {
     &-topics-wrappper {
       border: none;
+
       &:hover {
         border-color: var(--redditish-border-highlight-color);
+
         + .custom-right-sidebar_recent-topics-wrappper {
           border-color: var(--redditish-border-highlight-color);
         }
@@ -80,6 +85,7 @@
 
     h2 {
       margin: 0.25em 0 !important; // overriding another override
+
       a {
         color: var(--primary);
       }
@@ -110,18 +116,22 @@
         gap: 0.25em;
         margin-bottom: 0;
         padding-left: 0;
+
         .badge-wrapper {
           display: none;
         }
+
         [data-user-card] {
           display: none;
         }
+
         &-posted {
           min-width: 0;
           display: flex;
           flex: 1 1 auto;
           gap: 0.5em;
         }
+
         &-posted-by {
           display: none;
         }
@@ -131,9 +141,11 @@
         font-size: var(--font-0);
       }
     }
+
     &-topics {
       display: flex;
       flex-direction: column;
+
       .custom-topic-layout {
         display: grid;
         grid-template-areas: "image content1" "image content2" "image content3";

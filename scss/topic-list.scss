@@ -46,6 +46,7 @@ body.category,
 #navigation-bar {
   width: 100%;
   margin: 0 0 1em 0;
+
   @include custom-card;
 }
 
@@ -172,7 +173,7 @@ div.education {
     padding-left: 0.05em;
 
     a:not(.badge-wrapper) {
-      color: currentColor;
+      color: currentcolor;
 
       &:hover,
       &:focus {
@@ -228,7 +229,6 @@ div.education {
 
 .custom-post-bar-contents {
   @include custom-card;
-
   display: flex;
   align-items: center;
 
@@ -264,13 +264,14 @@ div.education {
   display: block;
   background: var(--secondary);
   border: 1px solid var(--redditish-border-color);
+
   .discourse-no-touch & {
     &:hover {
       border: 1px solid var(--redditish-border-highlight-color);
-
       color: var(--primary);
+
       .d-icon {
-        color: currentColor;
+        color: currentcolor;
       }
     }
   }
@@ -299,9 +300,11 @@ div.education {
   h3 {
     text-align: left;
   }
+
   .description {
     margin-top: 0.5em;
   }
+
   .subcategories {
     margin-left: -0.5em;
   }

@@ -133,6 +133,7 @@ div.education {
       display: flex;
       justify-content: center;
       background: var(--danger-medium);
+      max-width: unset;
 
       span {
         position: absolute;
@@ -153,6 +154,13 @@ div.education {
 
   tr {
     border: none;
+  }
+
+  .badge-notification,
+  .category-topic-link td.num .badge-notification {
+    font-size: var(--font-down-3);
+    top: -2px; // ocular alignment
+    padding: 0.2em 0.4em 0.2em;
   }
 }
 
@@ -253,10 +261,6 @@ div.education {
   margin-bottom: 1em;
 }
 
-.topic-list .topic-list-item-separator .topic-list-data {
-  max-width: unset;
-}
-
 #dismiss-topics-top,
 #dismiss-new-top,
 #dismiss-new-bottom,
@@ -284,15 +288,6 @@ div.education {
 #dismiss-topics-top,
 #dismiss-new-top {
   margin-bottom: 0.5em;
-}
-
-.topic-list {
-  .badge-notification,
-  .category-topic-link td.num .badge-notification {
-    font-size: var(--font-down-3);
-    top: -2px; // ocular alignment
-    padding: 0.2em 0.4em 0.2em;
-  }
 }
 
 .category-boxes {

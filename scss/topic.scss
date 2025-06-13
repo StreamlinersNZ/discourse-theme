@@ -216,6 +216,24 @@
   @media screen and (max-width: 924px) {
     grid-template-columns: 1fr;
   }
+
+  #topic-progress {
+    border: 1px solid var(--primary-400);
+
+    .nums {
+      top: 0.65em;
+    }
+  }
+
+  #topic-progress-wrapper {
+    --d-border-radius: 100px;
+
+    .topic-admin-menu-button .toggle-admin-menu {
+      border-right: none;
+      border-radius: var(--d-border-radius) 0 0 var(--d-border-radius);
+      height: 100%;
+    }
+  }
 }
 
 .posts-wrapper {
@@ -243,24 +261,4 @@ h3.suggested-topics-message {
 
 html:not(.footer-nav-visible) #topic-progress-wrapper {
   bottom: calc(env(safe-area-inset-bottom) + 1em);
-}
-
-.container.posts {
-  #topic-progress {
-    border: 1px solid var(--primary-400);
-
-    .nums {
-      top: 0.65em;
-    }
-  }
-
-  #topic-progress-wrapper {
-    --d-border-radius: 100px;
-
-    .topic-admin-menu-button .toggle-admin-menu {
-      border-right: none;
-      border-radius: var(--d-border-radius) 0 0 var(--d-border-radius);
-      height: 100%;
-    }
-  }
 }

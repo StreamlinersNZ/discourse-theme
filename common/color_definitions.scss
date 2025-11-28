@@ -8,7 +8,7 @@ $redditish-border-color-dark: $primary-very-low;
 $redditish-border-highlight-color-light: $primary-600;
 $redditish-border-highlight-color-dark: $primary-300;
 $redditish-border-color: $primary-low !default;
-
+$redditish-border-highlight-color: $primary-200 !default;
 
 @if is-light-color-scheme() {
   $redditish-border-color: $redditish-border-color-light;

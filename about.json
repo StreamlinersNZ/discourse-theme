@@ -12,10 +12,26 @@
       ]
     ]
   },
-  "color_schemes": {},
+  "color_schemes": {
+    "HealthPathways": {
+      "primary": "0b213b",
+      "secondary": "f8f5f0",
+      "tertiary": "76ade4",
+      "quaternary": "e6e0db",
+      "header_background": "f8f5f0",
+      "header_primary": "0b213b",
+      "highlight": "76ade4",
+      "danger": "d04444",
+      "success": "009900",
+      "love": "fa6c8d"
+    }
+  },
   "components": [
     "https://github.com/discourse/discourse-full-width-component.git",
     "https://github.com/discourse/discourse-header-search.git"
   ],
-  "screenshots": ["screenshots/light.png", "screenshots/dark.png"]
+  "screenshots": [
+    "screenshots/light.png",
+    "screenshots/dark.png"
+  ]
 }

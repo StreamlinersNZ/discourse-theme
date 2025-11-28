@@ -3,6 +3,13 @@ $redditish-background-color: dark-light-choose(
   $header_background
 );
 
+$redditish-border-color-light: $primary-low-mid;
+$redditish-border-color-dark: $primary-very-low;
+$redditish-border-highlight-color-light: $primary-600;
+$redditish-border-highlight-color-dark: $primary-300;
+$redditish-border-color: $primary-low !default;
+
+
 @if is-light-color-scheme() {
   $redditish-border-color: $redditish-border-color-light;
 } @else {

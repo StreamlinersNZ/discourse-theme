@@ -1,12 +1,8 @@
 #topic-title {
-  background: var(--secondary);
   margin: 0;
   border-radius: 4px 4px 0 0;
   box-sizing: border-box;
   padding: 1.25em 2em;
-  border: 1px solid var(--redditish-border-color);
-  border-bottom: none;
-  box-shadow: var(--box-shadow-hover);
 
   @include custom-topic-width;
 
@@ -14,7 +10,7 @@
     font-size: var(--font-up-4);
 
     a {
-      color: var(--primary);
+      color: var(--secondary);
     }
     font-weight: normal;
     margin-bottom: 0.25em;
@@ -24,7 +20,7 @@
   .discourse-tag.simple,
   .discourse-tag.simple:visited,
   .discourse-tag.simple:hover {
-    color: var(--primary);
+    color: var(--secondary);
   }
 
   a.edit-topic {

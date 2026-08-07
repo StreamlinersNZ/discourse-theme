@@ -1,7 +1,13 @@
+// HealthPathways renders the topic header as a light card rather than upstream's
+// dark banner, so the title and the posts below it read as one continuous
+// surface: rounded on top only, no bottom border, joined to .posts-wrapper.
 #topic-title {
-  background: var(--primary);
+  background: var(--secondary);
   margin: 0;
-  border-radius: 4px 4px 0 0;
+  border-radius: 0.5em 0.5em 0 0;
+  border: 1px solid var(--redditish-border-color);
+  border-bottom: none;
+  box-shadow: var(--hp-shadow-resting);
   box-sizing: border-box;
   padding: 1.25em 2em;
 
@@ -11,7 +17,7 @@
     font-size: var(--font-up-4);
 
     a {
-      color: var(--secondary);
+      color: var(--primary);
     }
     font-weight: normal;
     margin-bottom: 0.25em;
@@ -21,7 +27,7 @@
   .discourse-tag.simple,
   .discourse-tag.simple:visited,
   .discourse-tag.simple:hover {
-    color: var(--secondary);
+    color: var(--primary);
   }
 
   a.edit-topic {
@@ -214,7 +220,7 @@
 
 .posts-wrapper {
   @include custom-card {
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 0.5em 0.5em;
     border-top: none !important;
     padding: 1em 2em 2em;
   }
@@ -246,7 +252,9 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 // topic voting support
 .regular:has(.title-voting) {
   #topic-title .title-wrapper {
-    border-left: 1px solid var(--secondary);
+    // Upstream divides against a dark header; ours is light, so the divider
+    // uses the card border colour to stay visible.
+    border-left: 1px solid var(--redditish-border-color);
     padding-left: 1em;
     min-height: 4.5em;
 
@@ -279,7 +287,9 @@ html:not(.footer-nav-visible) #topic-progress-wrapper {
 
   .vote-count-wrapper {
     height: 2em;
-    color: var(--secondary);
+
+    // Light topic header: the count must read against --secondary, not on it.
+    color: var(--primary);
     border: none;
     font-size: var(--font-up-2);
   }

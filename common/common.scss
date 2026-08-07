@@ -1,6 +1,8 @@
 :root {
-  --d-button-border-radius: 100px;
-  --d-nav-pill-border-radius: 100px;
+  // HealthPathways uses square-ish corners throughout rather than the upstream
+  // pill shape, so buttons and nav pills match the 4px input radius.
+  --d-button-border-radius: 4px;
+  --d-nav-pill-border-radius: 4px;
   --d-input-border-radius: 4px;
   --topic-body-width: 900px;
 }
@@ -8,15 +10,18 @@
 @mixin custom-card {
   box-sizing: border-box;
   padding: 0.75em;
-  border-radius: 0.25em;
+  border-radius: 0.5em;
   border: 1px solid var(--redditish-border-color);
   background: var(--secondary);
+  box-shadow: var(--hp-shadow-resting);
 
   @content;
 
   .discourse-no-touch & {
     &:hover {
-      border: 1px solid var(--redditish-border-highlight-color);
+      // Lift rather than outline: the border stays constant and elevation
+      // carries the hover state.
+      box-shadow: var(--hp-shadow-raised);
     }
   }
 }
@@ -133,11 +138,19 @@ body {
     [class*="topic-map__"]
   ) {
     padding: 0.5em 1em;
+
+    // Small gutter so adjacent buttons don't read as a single segmented control
+    // now that the pill radius has been squared off.
+    margin: 0.1em;
   }
 }
 
 .btn[class*="popup-menu-btn"] {
   border: none;
+}
+
+.popup-menu {
+  padding: 0.25em;
 }
 
 .dropdown-menu {
@@ -158,11 +171,9 @@ body {
 }
 
 .sidebar-wrapper .sidebar-container {
+  // Static divider. Upstream brightens this on hover; HealthPathways keeps
+  // chrome quiet and reserves hover emphasis for content surfaces.
   border-right: 1px solid var(--redditish-border-color);
-
-  &:hover {
-    border-color: var(--redditish-border-highlight-color);
-  }
 }
 
 .sidebar-section-wrapper
@@ -173,6 +184,55 @@ body {
 .sidebar-section-link-wrapper button {
   border-radius: 0;
   padding: 0 var(--d-sidebar-row-horizontal-padding) !important; // overrides button specificity
+}
+
+// HealthPathways navigation shape.
+//
+// The forum is organised by region rather than by Discourse's built-in
+// category/tag taxonomy, so the stock Categories and Tags sections are hidden
+// and the custom region sections are given an explicit order. Regions are
+// listed here rather than in settings.yml because Discourse exposes list
+// settings to SCSS as a delimited string, and iterating one costs more
+// complexity than it saves. Add a region by adding a line.
+.sidebar-section-wrapper.sidebar-section {
+  &[data-section-name="categories"],
+  &[data-section-name="tags"] {
+    display: none;
+  }
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link[data-link-name="docs"] {
+  display: none;
+}
+
+.sidebar-wrapper {
+  .sidebar-custom-sections {
+    display: contents;
+  }
+
+  [data-section-name="community"] {
+    order: -6;
+  }
+
+  [data-section-name="global"] {
+    order: -5;
+  }
+
+  [data-section-name="australia"] {
+    order: -4;
+  }
+
+  [data-section-name="england"] {
+    order: -3;
+  }
+
+  [data-section-name="new-zealand"] {
+    order: -2;
+  }
+
+  [data-section-name="wales"] {
+    order: -1;
+  }
 }
 
 .add-to-sidebar {

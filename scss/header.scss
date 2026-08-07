@@ -1,14 +1,9 @@
+// Header chrome stays static. Upstream brightens the bottom border on hover and
+// again when a menu panel is hovered; HealthPathways keeps chrome quiet and
+// reserves hover emphasis for content surfaces.
 .d-header {
   box-shadow: none;
   border-bottom: 1px solid var(--redditish-border-color);
-
-  &:hover {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
-  }
-
-  &:has(.menu-panel:hover) {
-    border-bottom: 1px solid var(--redditish-border-highlight-color);
-  }
 }
 
 .menu-panel {
@@ -31,6 +26,29 @@
   .bottom-tabs {
     padding-top: 0.5em;
   }
+}
+
+// Clear the sidebar toggle, and let a wide HealthPathways logo scale to the
+// header rather than being clipped.
+.home-logo-wrapper-outlet {
+  margin-left: 3.7em; // 2.7em hamburger width + 1em margin
+  margin-right: 0.725em;
+
+  a {
+    flex: 1 0 auto;
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+// Widen the header search field (discourse-header-search component).
+.floating-search-input {
+  width: 60%;
 }
 
 .d-header-icons .icon {

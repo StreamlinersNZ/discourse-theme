@@ -1,9 +1,12 @@
-$redditish-light-bg: #dae0e6;
+// HealthPathways palette. Only the light-scheme values are overridden, so the
+// dark-scheme branches below still resolve from Discourse's colour variables
+// and the theme keeps working under a dark colour scheme.
+$redditish-light-bg: #f0f4f8;
 $redditish-background-color: dark-light-choose(
   $redditish-light-bg,
   $header_background
 );
-$redditish-border-color-light: $primary-low-mid;
+$redditish-border-color-light: #cdd7e1;
 $redditish-border-color-dark: $primary-very-low;
 $redditish-border-highlight-color-light: $primary-600;
 $redditish-border-highlight-color-dark: $primary-300;
@@ -22,8 +25,18 @@ $redditish-border-highlight-color: $primary-200 !default;
   $redditish-border-highlight-color: $redditish-border-highlight-color-dark;
 }
 
+// Soft-elevation tokens. HealthPathways expresses hierarchy with shadow rather
+// than the upstream border-highlight, so surfaces lift instead of outlining on
+// hover. Named by resting elevation so the intent survives future tweaks.
+$hp-shadow-resting: 0 1px 2px 0 rgb(21, 21, 21, 8%);
+$hp-shadow-raised: 0 2px 4px 0 rgb(21, 21, 21, 8%);
+$hp-shadow-floating: 0 3px 6px 0 rgb(21, 21, 21, 8%);
+
 :root {
   --redditish-bg-color: #{$redditish-background-color};
   --redditish-border-color: #{$redditish-border-color};
   --redditish-border-highlight-color: #{$redditish-border-highlight-color};
+  --hp-shadow-resting: #{$hp-shadow-resting};
+  --hp-shadow-raised: #{$hp-shadow-raised};
+  --hp-shadow-floating: #{$hp-shadow-floating};
 }

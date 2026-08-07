@@ -78,16 +78,10 @@
 
   &_recent {
     &-topics-wrapper {
+      // No separator rules between recent topics, matching the quieter chrome
+      // used elsewhere. The upstream hover rules only recoloured this border,
+      // so they are dropped with it rather than left as dead selectors.
       border: none;
-      border-top: 1px solid var(--primary-low);
-
-      &:hover {
-        border-color: var(--redditish-border-highlight-color);
-
-        + .custom-right-sidebar_recent-topics-wrapper {
-          border-color: var(--redditish-border-highlight-color);
-        }
-      }
     }
 
     h4 {

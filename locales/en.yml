@@ -1,6 +1,6 @@
 en:
   theme_metadata:
-    description: "A Discourse theme that looks a little like reddit"
+    description: "HealthPathways forum theme: full-width layout with a soft-elevation visual style"
   top_route_welcome: "Welcome!"
   top_route_description: "You're viewing a feed containing topics from all categories. If you're looking for something more specific, browse <a href='%{basePath}/categories'>the category list</a>."
   about_category: "About this category"
@@ -10,7 +10,7 @@ en:
   about_tag: "About this tag"
   about_tag_admin_tip_description: "You can add a tag description here by"
   about_tag_admin_tip_description_link: "clicking this link."
-  recent_topics: "Recent topics"
+  recent_topics: "Recently viewed topics"
   hot_topics: "Hot topics"
   top_tags: "Top tags"
   subcategories: "Subcategories"

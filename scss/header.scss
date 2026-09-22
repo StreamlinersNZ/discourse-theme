@@ -1,5 +1,7 @@
+// Header chrome stays static. Upstream brightens the bottom border on hover and
+// again when a menu panel is hovered; HealthPathways keeps chrome quiet and
+// reserves hover emphasis for content surfaces.
 .d-header {
-  display: flex !important;
   box-shadow: none;
   border-bottom: 1px solid var(--redditish-border-color);
 }
@@ -26,22 +28,27 @@
   }
 }
 
+// Clear the sidebar toggle, and let a wide HealthPathways logo scale to the
+// header rather than being clipped.
 .home-logo-wrapper-outlet {
-  grid-area: logo;
-  margin-left: 3.7em; // 2.7em hamburger width + 1em for margin
+  margin-left: 3.7em; // 2.7em hamburger width + 1em margin
   margin-right: 0.725em;
 
   a {
     flex: 1 0 auto;
   }
 
-  /* Adjusting the logo image size */
   img {
-    width: auto; /* or a specific width like 150px */
-    height: auto; /* or a specific height like 50px */
+    width: auto;
+    height: auto;
     max-width: 100%;
     max-height: 100%;
   }
+}
+
+// Widen the header search field (discourse-header-search component).
+.floating-search-input {
+  width: 60%;
 }
 
 .d-header-icons .icon {
@@ -54,29 +61,11 @@
   }
 }
 
-.has-sidebar-page .d-header > .wrap .contents {
-  grid-template-columns:
-    50px calc(var(--d-sidebar-width)) 1fr minmax(
-      0,
-      calc(var(--d-sidebar-width) - 50px)
-    )
-    minmax(0, 110px) !important;
-  gap: 1em;
-}
-
-.floating-search-input {
-  width: 60%;
-}
-
 .d-header-icons .active .icon {
   border-color: transparent !important;
 }
 
-.header-sidebar-toggle {
-  max-width: 50px !important;
-
-  button .d-icon {
-    font-size: var(--font-up-2);
-    color: var(--primary-medium);
-  }
+.header-sidebar-toggle button .d-icon {
+  font-size: var(--font-up-2);
+  color: var(--primary-medium);
 }

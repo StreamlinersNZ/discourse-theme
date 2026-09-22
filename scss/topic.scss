@@ -1,14 +1,17 @@
+// HealthPathways renders the topic header as a light card rather than upstream's
+// dark banner, so the title and the posts below it read as one continuous
+// surface: rounded on top only, no bottom border, joined to .posts-wrapper.
 #topic-title {
   background: var(--secondary);
   margin: 0;
   border-radius: 0.5em 0.5em 0 0;
   border: 1px solid var(--redditish-border-color);
-  border-bottom: none !important;
-  box-shadow: 0 1px 2px 0 rgba(21, 21, 21, 0.08);
+  border-bottom: none;
+  box-shadow: var(--hp-shadow-resting);
+  box-sizing: border-box;
+  padding: 1.25em 2em;
 
   @include custom-topic-width;
-  box-sizing: border-box;
-  padding: 1em 2em;
 
   h1 {
     font-size: var(--font-up-4);
@@ -44,31 +47,9 @@
   }
 }
 
-.title-voting {
-  padding-right: 0.75em;
-  padding-left: 0.75em;
-  width: 6em;
-  max-width: 10%;
-  box-sizing: border-box;
-  float: left;
-}
-
-.vote-count-wrapper {
-  font-size: var(--font-up-2);
-  height: 40px;
-  width: 100%;
-  margin-left: 0 !important;
-  border: 0 !important;
-}
-
-.vote-button {
-  width: 100%;
-  margin: 0;
-}
-
 .signup-cta {
-  @include custom-topic-width;
   @include custom-card;
+  @include custom-topic-width;
 
   .buttons {
     margin-bottom: 0;
@@ -80,11 +61,6 @@
   .topic-body {
     border-top: none;
   }
-}
-
-.topic-status-info,
-.topic-timer-info {
-  border-top: none !important;
 }
 
 .names span.first {
@@ -101,6 +77,7 @@
 
 .timeline-container.timeline-docked-bottom .timeline-footer-controls {
   opacity: 1;
+  pointer-events: all; // overrides core
 }
 
 .timeline-container .topic-timeline .timeline-scrollarea {
@@ -112,14 +89,18 @@
 }
 
 .timeline-footer-controls,
+.timeline-controls,
+.topic-notifications-button,
 .topic-admin-menu-button {
   > button,
   .topic-notifications-button summary {
-    @include custom-card;
     height: 2.6em; // consistency hack
-    padding-top: 0.6em;
-    padding-bottom: 0.65em;
     font-size: var(--font-down-1);
+
+    @include custom-card {
+      padding-top: 0.6em;
+      padding-bottom: 0.65em;
+    }
   }
 }
 
@@ -128,8 +109,9 @@
 }
 
 #topic-footer-buttons {
-  @include custom-topic-width;
   margin-bottom: 0;
+
+  @include custom-topic-width;
 
   .btn-primary {
     float: none;
@@ -213,15 +195,15 @@
 .container.posts {
   grid-template-columns: 1fr 8em;
 
-  @media screen and (max-width: 924px) {
+  @media screen and (width <= 924px) {
     grid-template-columns: 1fr;
   }
 
-  #topic-progress {
+  #topic-progress-wrapper #topic-progress {
     border: 1px solid var(--primary-400);
 
     .nums {
-      top: 0.65em;
+      top: 0.1em;
     }
   }
 
@@ -237,14 +219,18 @@
 }
 
 .posts-wrapper {
-  @include custom-card;
-  border-radius: 0 0 0.5em 0.5em;
-  border-top: none !important;
-  padding: 1em 2em 2em;
+  @include custom-card {
+    border-radius: 0 0 0.5em 0.5em;
+    border-top: none !important;
+    padding: 1em 2em 2em;
+  }
 }
 
-.topic-map {
-  border-radius: 4px;
+.topic-map.--bottom {
+  margin-top: 1em;
+  max-width: unset;
+
+  @include custom-card;
 }
 
 .map:first-of-type .buttons .btn {
@@ -261,4 +247,58 @@ h3.suggested-topics-message {
 
 html:not(.footer-nav-visible) #topic-progress-wrapper {
   bottom: calc(env(safe-area-inset-bottom) + 1em);
+}
+
+// topic voting support
+.regular:has(.title-voting) {
+  #topic-title .title-wrapper {
+    // Upstream divides against a dark header; ours is light, so the divider
+    // uses the card border colour to stay visible.
+    border-left: 1px solid var(--redditish-border-color);
+    padding-left: 1em;
+    min-height: 4.5em;
+
+    @media screen and (width >= 925px) {
+      width: 80%;
+    }
+  }
+}
+
+.title-voting {
+  float: left;
+  width: auto;
+  box-sizing: border-box;
+  margin-top: 1em;
+  max-width: unset;
+  z-index: 2;
+  padding: 0 0.5em 0 0.75em;
+
+  @media screen and (width >= 768px) {
+    padding: 0 1em 0 1.75em;
+  }
+
+  .voting-wrapper {
+    flex-direction: column;
+
+    .vote-button {
+      margin: 0;
+    }
+  }
+
+  .vote-count-wrapper {
+    height: 2em;
+
+    // Light topic header: the count must read against --secondary, not on it.
+    color: var(--primary);
+    border: none;
+    font-size: var(--font-up-2);
+  }
+
+  .vote-button {
+    font-size: var(--font-down-1);
+  }
+}
+
+.voting-wrapper.show-pointer .vote-count-wrapper:not(.no-votes):hover {
+  background: transparent;
 }
